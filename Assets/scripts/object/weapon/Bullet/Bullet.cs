@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private GameObject source;
+    public GameObject source;
 
     DealerManager dealers;
     TakerManager takers;
@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        effects.process();
+        effects.process(source);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

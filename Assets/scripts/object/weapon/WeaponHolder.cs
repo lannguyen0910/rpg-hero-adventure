@@ -6,12 +6,16 @@ public class WeaponHolder : MonoBehaviour
 {
     public GameObject[] weaponObjects;
 
+    PlayerStatus playerStatus;
+
     Weapon[] weapons;
     int currentWeapon = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerStatus = gameObject.GetComponent<PlayerStatus>();
+
         weapons = new Weapon[weaponObjects.Length];
 
         for (int i = 0; i < weapons.Length; ++i)
@@ -23,6 +27,11 @@ public class WeaponHolder : MonoBehaviour
     public void changeWeapon()
     {
         currentWeapon = (currentWeapon + 1) % weapons.Length;
+    }
+
+    public int getCurrentWeapon()
+    {
+        return currentWeapon;
     }
 
     public void processCommand(int code)

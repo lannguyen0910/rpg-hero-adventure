@@ -5,9 +5,9 @@ using UnityEngine;
 public class DamageTaker : EventTaker
 {
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-        eventCode = 1;
+        eventCode = GlobalConstraints.DAMAGE_CODE;
         base.Start();
     }
 

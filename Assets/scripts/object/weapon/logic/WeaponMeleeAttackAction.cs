@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class WeaponMeleeAttackAction : WeaponAction
 {
-    public GameObject bullet;
+    public GameObject slashArea;
+
+    WeaponAnimation anim;
+    WeaponStatus weaponStatus;
+    PlayerStatus playerStatus;
 
     void Start()
     {
         commandCode = (int)KeyCode.C;
         base.Start();
+
+        anim = gameObject.GetComponent<WeaponAnimation>();
+        weaponStatus = gameObject.GetComponent<WeaponStatus>();
+        playerStatus = gameObject.transform.parent.GetComponent<PlayerStatus>();
     }
 
     public override void process()
     {
-        GameObject b = Instantiate(bullet, GameObject.Find("Player").transform.position, Quaternion.identity);
-        b.GetComponent<Bullet>().setSource(GameObject.Find("Player"));
+        int curDirection = playerStatus.curDirection;
+        if (curDirection > 4)
+            curDirection -= (curDirection - 4) * 2;
+
+        GameObject slashAreaInstance = Instantiate(slashArea, transform.parent);
+        slashAreaInstance.transform.parent = gameObject.transform.parent;
+
+        slashAreaInstance.transform.localPosition = new Vector3(0, 0, 0);
+        slashAreaInstance.transform.localScale = new Vector3(0.35f, 0.35f, 0);
+        slashAreaInstance.transform.Rotate(0, 0, curDirection  * -45);
+
+        slashAreaInstance.GetComponent<Bullet>().source = gameObject.transform.parent.gameObject;
+
+        anim.setWeaponAttackAnim(curDirection);
+        playerStatus.actionDelay = 40.0f / 60.0f;
     }
 }

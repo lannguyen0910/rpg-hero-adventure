@@ -16,11 +16,11 @@ public class EffectManager : MonoBehaviour
         eventEffects.Add(code, effect);
     }
 
-    public void process()
+    public void process(GameObject source)
     {
         foreach (EventEffect effect in eventEffects.Values)
         {
-            effect.process();
+            effect.process(source);
         }
     }
 }

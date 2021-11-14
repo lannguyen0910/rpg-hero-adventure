@@ -12,5 +12,5 @@ public abstract class EventEffect : MonoBehaviour
         gameObject.GetComponent<EffectManager>().addEffect(eventCode, this);
     }
 
-    public abstract void process();
+    public abstract void process(GameObject source);
 }
