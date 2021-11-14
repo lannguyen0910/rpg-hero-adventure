@@ -17,7 +17,7 @@ public class WeaponMeleeAttackAction : WeaponAction
 
         anim = gameObject.GetComponent<WeaponAnimation>();
         weaponStatus = gameObject.GetComponent<WeaponStatus>();
-        playerStatus = gameObject.transform.parent.GetComponent<PlayerStatus>();
+        playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
     }
 
     public override void process()
@@ -27,13 +27,13 @@ public class WeaponMeleeAttackAction : WeaponAction
             curDirection -= (curDirection - 4) * 2;
 
         GameObject slashAreaInstance = Instantiate(slashArea, transform.parent);
-        slashAreaInstance.transform.parent = gameObject.transform.parent;
+        slashAreaInstance.transform.parent = gameObject.transform.parent.parent;
 
         slashAreaInstance.transform.localPosition = new Vector3(0, 0, 0);
         slashAreaInstance.transform.localScale = new Vector3(0.35f, 0.35f, 0);
         slashAreaInstance.transform.Rotate(0, 0, curDirection  * -45);
 
-        slashAreaInstance.GetComponent<Bullet>().source = gameObject.transform.parent.gameObject;
+        slashAreaInstance.GetComponent<Bullet>().source = gameObject.transform.parent.parent.gameObject;
 
         anim.setWeaponAttackAnim(curDirection);
         playerStatus.actionDelay = 40.0f / 60.0f;

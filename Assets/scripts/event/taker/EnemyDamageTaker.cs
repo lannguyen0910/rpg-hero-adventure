@@ -16,6 +16,10 @@ public class EnemyDamageTaker : EventTaker
 
     public override void process(GameObject source)
     {
-        status.health -= 10;
+        PlayerStatus playerStatus = source.GetComponent<PlayerStatus>();
+        WeaponStatus weaponStatus = source.GetComponentInChildren<WeaponStatus>();
+
+        float damage = weaponStatus.damage;
+        status.health -= damage;
     }
 }

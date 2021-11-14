@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class PlayerStatus : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (healthPoint <= 0)
+        {
+            SceneManager.LoadScene("HomeScene");
+        }
     }
 
     void FixedUpdate()

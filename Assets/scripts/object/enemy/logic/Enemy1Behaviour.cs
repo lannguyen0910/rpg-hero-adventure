@@ -47,6 +47,8 @@ public class Enemy1Behaviour : MonoBehaviour
             return;
         }
 
+        if (target == null) return;
+
         if (chaseMode)
         {
             if (Math.Abs(transform.position.x - target.transform.position.x) > GlobalConstraints.OFFSET)
