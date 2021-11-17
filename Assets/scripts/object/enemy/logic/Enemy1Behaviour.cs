@@ -42,7 +42,7 @@ public class Enemy1Behaviour : MonoBehaviour
         if (status.actionDelay > 0)
         {
             status.actionDelay -= Time.deltaTime;
-            if (status.actionDelay <= GlobalConstraints.EPS)
+            if (status.actionDelay <= Global.EPS)
                 anim.resetAnim();
             return;
         }
@@ -51,7 +51,7 @@ public class Enemy1Behaviour : MonoBehaviour
 
         if (chaseMode)
         {
-            if (Math.Abs(transform.position.x - target.transform.position.x) > GlobalConstraints.OFFSET)
+            if (Math.Abs(transform.position.x - target.transform.position.x) > Global.OFFSET)
             {
                 if (transform.position.x < target.transform.position.x)
                 {
@@ -64,7 +64,7 @@ public class Enemy1Behaviour : MonoBehaviour
                     direction = 1;
                 }
             }
-            else if (Math.Abs(transform.position.y - target.transform.position.y) > GlobalConstraints.OFFSET)
+            else if (Math.Abs(transform.position.y - target.transform.position.y) > Global.OFFSET)
             {
                 if (transform.position.y < target.transform.position.y)
                 {
@@ -80,13 +80,13 @@ public class Enemy1Behaviour : MonoBehaviour
         }
         else
         {
-            if (GlobalConstraints.calDistance(transform.position, target.transform.position) <= status.detectDistance * status.detectDistance)
+            if (Global.calDistance(transform.position, target.transform.position) <= status.detectDistance * status.detectDistance)
             {
                 chaseMode = true;
                 return;
             }
 
-            if (stepLeft <= GlobalConstraints.EPS)
+            if (stepLeft <= Global.EPS)
             {
                 stepLeft = step;
                 direction = (direction + 1) % 4;
@@ -115,13 +115,13 @@ public class Enemy1Behaviour : MonoBehaviour
             status.actionDelay = 50f / 60f;
             anim.resetAnim();
 
-            if (target.transform.position.x < transform.position.x - GlobalConstraints.OFFSET)
+            if (target.transform.position.x < transform.position.x - Global.OFFSET)
                 direction = 1;
-            else if (target.transform.position.x > transform.position.x + GlobalConstraints.OFFSET)
+            else if (target.transform.position.x > transform.position.x + Global.OFFSET)
                 direction = 3;
-            else if (target.transform.position.y < transform.position.y - GlobalConstraints.OFFSET)
+            else if (target.transform.position.y < transform.position.y - Global.OFFSET)
                 direction = 0;
-            else if (target.transform.position.y > transform.position.y + GlobalConstraints.OFFSET)
+            else if (target.transform.position.y > transform.position.y + Global.OFFSET)
                 direction = 2;
 
             anim.setAttackAnim(direction);

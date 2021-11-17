@@ -8,7 +8,7 @@ public class DamageDealer : EventDealer
     // Start is called before the first frame update
     void Start()
     {
-        eventCode = GlobalConstraints.DAMAGE_CODE;
+        eventCode = Global.DAMAGE_CODE;
         base.Start();
     }
 
@@ -19,7 +19,7 @@ public class DamageDealer : EventDealer
             Debug.Log("Hello " + destination.name);
             try
             {
-                destination.gameObject.GetComponent<TakerManager>().getTaker(GlobalConstraints.DAMAGE_CODE).process(source);
+                destination.gameObject.GetComponent<TakerManager>().getTaker(Global.DAMAGE_CODE).process(source);
             }
             catch (NullReferenceException ex)
             {

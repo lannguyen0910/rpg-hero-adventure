@@ -5,5 +5,5 @@ using UnityEngine;
 public class WeaponStatus : MonoBehaviour
 {
     public float damage = 10f;
-    public float bonusAttackSpeed = 0;
+    public float bonusAttackSpeed = 0f;
 }

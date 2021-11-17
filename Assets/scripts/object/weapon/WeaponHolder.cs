@@ -4,38 +4,42 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    public GameObject[] weaponObjects;
+    [SerializeField]
+    private GameObject[] weaponObjects;
 
-    PlayerStatus playerStatus;
+    PlayerStatus status;
 
     Weapon[] weapons;
     int currentWeapon = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
-        playerStatus = gameObject.GetComponent<PlayerStatus>();
+        status = gameObject.GetComponent<PlayerStatus>();
 
+        // Get weapon props
         weapons = new Weapon[weaponObjects.Length];
-
         for (int i = 0; i < weapons.Length; ++i)
         {
             weapons[i] = weaponObjects[i].GetComponent<Weapon>();
         }
+
     }
     
-    public void changeWeapon()
+    public void ChangeWeapon()
     {
         currentWeapon = (currentWeapon + 1) % weapons.Length;
+
     }
 
-    public int getCurrentWeapon()
+    public int GetCurrentWeapon()
     {
         return currentWeapon;
+
     }
 
-    public void processCommand(int code)
+    public void ProcessAction(int code)
     {
-        weapons[currentWeapon].processCommand(code);
+        weapons[currentWeapon].ProcessAction(code);
+
     }
 }

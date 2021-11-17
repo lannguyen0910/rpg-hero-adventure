@@ -9,7 +9,7 @@ public class DamageTaker : EventTaker
     // Start is called before the first frame update
     protected void Start()
     {
-        eventCode = GlobalConstraints.DAMAGE_CODE;
+        eventCode = Global.DAMAGE_CODE;
         status = gameObject.GetComponent<PlayerStatus>();
         base.Start();
     }

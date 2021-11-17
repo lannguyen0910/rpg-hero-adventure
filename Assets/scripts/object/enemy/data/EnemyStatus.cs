@@ -6,8 +6,10 @@ public class EnemyStatus : MonoBehaviour
 {
     public float health = 50;
     public float damage = 10;
-    public float moveSpeed = 2;
+    public float moveSpeed = 0.5f;
     public float attackSpeed = 50f / 60f;
+
+
     public float actionDelay;
     public float detectDistance = 7;
 }

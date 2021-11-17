@@ -11,18 +11,21 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         weaponActionDict = new Dictionary<int, WeaponAction>();
+
     }
 
-    public void addAction(int commandCode, WeaponAction action)
+    public void AddAction(int code, WeaponAction action)
     {
-        weaponActionDict.Add(commandCode, action);
+        weaponActionDict.Add(code, action);
+
     }
 
-    public void processCommand(int code)
+    public void ProcessAction(int code)
     {
         if (weaponActionDict.ContainsKey(code))
         {
-            weaponActionDict[code].process();
+            weaponActionDict[code].Process();
         }
+
     }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class WeaponMeleeAttackAction : WeaponAction
 {
-    public GameObject slashArea;
+    [SerializeField]
+    private GameObject hitboxObject;
 
-    WeaponAnimation anim;
-    WeaponStatus weaponStatus;
     PlayerStatus playerStatus;
+    WeaponStatus weaponStatus;
+    WeaponAnimation anim;
 
-    void Start()
+    new void Start()
     {
-        commandCode = (int)KeyCode.C;
+        // Auto add to action dictionary
+        code = Global.WEAPON_ACTION_1;
         base.Start();
 
         anim = gameObject.GetComponent<WeaponAnimation>();
@@ -20,22 +22,28 @@ public class WeaponMeleeAttackAction : WeaponAction
         playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
     }
 
-    public override void process()
+    public override void Process()
     {
-        int curDirection = playerStatus.curDirection;
-        if (curDirection > 4)
-            curDirection -= (curDirection - 4) * 2;
+        int direction = playerStatus.direction;
+        // Adjust direction
+        Global.AdjustDirection(ref direction, Global.PLAYER_DIRECTION_BREAKPOINT);
 
-        GameObject slashAreaInstance = Instantiate(slashArea, transform.parent);
-        slashAreaInstance.transform.parent = gameObject.transform.parent.parent;
+        // Create new hitbox
+        GameObject hitbox = Instantiate(hitboxObject, transform.parent);
 
-        slashAreaInstance.transform.localPosition = new Vector3(0, 0, 0);
-        slashAreaInstance.transform.localScale = new Vector3(0.35f, 0.35f, 0);
-        slashAreaInstance.transform.Rotate(0, 0, curDirection  * -45);
+        // Add hitbox to player
+        hitbox.transform.parent = gameObject.transform.parent.parent;
 
-        slashAreaInstance.GetComponent<Bullet>().source = gameObject.transform.parent.parent.gameObject;
+        // Rotate hitbox to right direction
+        hitbox.transform.localPosition = new Vector3(0, 0, 0);
+        hitbox.transform.localScale = new Vector3(0.35f, 0.35f, 0);
+        hitbox.transform.Rotate(0, 0, direction  * -45);
 
-        anim.setWeaponAttackAnim(curDirection);
-        playerStatus.actionDelay = 40.0f / 60.0f;
+        // Add hitbox's source
+        hitbox.GetComponent<Bullet>().source = gameObject.transform.parent.parent.gameObject;
+
+        playerStatus.SetDelay(playerStatus.attackSpeed);
+        anim.setWeaponAttackAnim(direction);
+
     }
 }

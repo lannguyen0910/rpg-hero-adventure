@@ -19,8 +19,6 @@ public class PortalController : MonoBehaviour
         {
             player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z);
             GameObject camera = GameObject.Find("Main Camera");
-            camera.GetComponent<CameraController>().minPos = nextCameraMinPos;
-            camera.GetComponent<CameraController>().maxPos = nextCameraMaxPos;
         }
     }
 

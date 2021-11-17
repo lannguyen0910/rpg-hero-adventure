@@ -8,7 +8,7 @@ public class EnemyDamageTaker : EventTaker
 
     protected void Start()
     {
-        eventCode = GlobalConstraints.DAMAGE_CODE;
+        eventCode = Global.DAMAGE_CODE;
         base.Start();
 
         status = gameObject.GetComponent<EnemyStatus>();

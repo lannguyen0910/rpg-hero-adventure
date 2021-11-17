@@ -5,12 +5,13 @@ using UnityEngine;
 public abstract class WeaponAction : MonoBehaviour
 {
     [SerializeField]
-    protected int commandCode;
+    protected int code;
 
     protected void Start()
     {
-        gameObject.GetComponent<Weapon>().addAction(commandCode, this);    
+        gameObject.GetComponent<Weapon>().AddAction(code, this);
+
     }
 
-    public abstract void process();
+    public abstract void Process();
 }
