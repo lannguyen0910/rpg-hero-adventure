@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4014041868563763432}
   - component: {fileID: 4014041868563763433}
   - component: {fileID: 4014041868563763428}
-  - component: {fileID: 4014041868563763438}
   - component: {fileID: 4014041868563763429}
   - component: {fileID: 4014041868563763439}
   - component: {fileID: 4014041868563763430}
+  - component: {fileID: 4014041868563763438}
   - component: {fileID: 4014041868563763431}
   - component: {fileID: 4014041868563763427}
   - component: {fileID: 4014041868563763424}
@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808172389467934111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: -1.97, z: 0}
+  m_LocalPosition: {x: 7.05, y: 1.09, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 2672324057985123196}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9999
-  m_Sprite: {fileID: 4130640169021434097, guid: da53a7e826bc95d46bfdd51c3ab396ac, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 4130640169021434097, guid: f40a2e7af313f8a4db147096957be1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +152,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 66aa8292e608ec744ac1115930e6341a, type: 2}
-  m_CullingMode: 2
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -160,23 +160,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4014041868563763438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808172389467934111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adff941f852900a4499a83dfb2f5a07b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoint: 100
-  moveSpeed: 5
-  attackSpeed: 0.6666667
-  curDirection: 0
-  actionDelay: 0
 --- !u!114 &4014041868563763429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +196,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71a7041ce43d6840a59b61595a69dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4014041868563763438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808172389467934111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adff941f852900a4499a83dfb2f5a07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoint: 100
+  moveSpeed: 5
+  attackSpeed: 0.6666667
+  direction: 0
 --- !u!114 &4014041868563763431
 MonoBehaviour:
   m_ObjectHideFlags: 0

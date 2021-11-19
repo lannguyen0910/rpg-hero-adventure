@@ -42,16 +42,17 @@ public static class Global
 
     // Event code
     public static int DAMAGE_CODE = 1;
-    
-    
-    
+
+
+
     // Other constants
+    public static float INF = 1000000000f;
     public static float EPS = 0.00001f;
     public static float PI = 3.1416f;
     public static float OFFSET = 0.1f;
 
     // Global function
-    public static float calDistance(Vector3 a, Vector3 b)
+    public static float CalculateDistance(Vector3 a, Vector3 b)
     {
         return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
     }

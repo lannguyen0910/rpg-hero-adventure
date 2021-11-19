@@ -53,7 +53,7 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
-        anim.SetInteger("curDirection", status.direction);
+        anim.SetInteger("direction", status.direction);
         
     }
 

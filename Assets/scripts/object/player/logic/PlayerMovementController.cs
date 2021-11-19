@@ -9,8 +9,8 @@ public class PlayerMovementController : MonoBehaviour
     PlayerAnimation anim;
 
     // Current move speed for each direction
-    float speedX = 0.0f;
-    float speedY = 0.0f;
+    float speedX = 0f;
+    float speedY = 0f;
 
     // Previous click button for left/right and up/down
     int prevActionX = -1;
@@ -27,15 +27,15 @@ public class PlayerMovementController : MonoBehaviour
     void Update()
     {
         // Reset move speed each frame
-        speedX = 0;
-        speedY = 0;
+        speedX = 0f;
+        speedY = 0f;
 
         // Check horizontal move
         CheckMoveInput(Global.MOVE_LEFT, -1, ref speedX, ref prevActionX);
         CheckMoveInput(Global.MOVE_RIGHT, 1, ref speedX, ref prevActionX);
         // Check vertical move
-        CheckMoveInput(Global.MOVE_UP,   -1, ref speedY, ref prevActionY);
         CheckMoveInput(Global.MOVE_DOWN, -1, ref speedY, ref prevActionY);
+        CheckMoveInput(Global.MOVE_UP,    1, ref speedY, ref prevActionY);
 
         // Check if doing other action
         if (status.IsDelay())
@@ -61,7 +61,7 @@ public class PlayerMovementController : MonoBehaviour
         if (Input.GetKeyDown((KeyCode)code) || (Input.GetKey((KeyCode)code) && code == prevAction))
         {
             speed = sign * status.moveSpeed;
-            prevActionX = code;
+            prevAction = code;
         }
 
     }

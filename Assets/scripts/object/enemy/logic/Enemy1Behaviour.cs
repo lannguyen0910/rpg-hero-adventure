@@ -80,7 +80,7 @@ public class Enemy1Behaviour : MonoBehaviour
         }
         else
         {
-            if (Global.calDistance(transform.position, target.transform.position) <= status.detectDistance * status.detectDistance)
+            if (Global.CalculateDistance(transform.position, target.transform.position) <= status.detectDistance * status.detectDistance)
             {
                 chaseMode = true;
                 return;
