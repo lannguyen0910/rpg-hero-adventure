@@ -14,7 +14,7 @@ public class DamageTaker : EventTaker
         base.Start();
     }
 
-    public override void process(GameObject source)
+    public override void Process(GameObject source)
     {
         Debug.Log("Hello there " + source.name);
 

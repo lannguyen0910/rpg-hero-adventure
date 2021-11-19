@@ -19,7 +19,7 @@ public class EnemySlashEffect : EventEffect
         currentDelay = 0;
     }
 
-    public override void process(GameObject source)
+    public override void Process(GameObject source)
     {
         if (status == null)
         {

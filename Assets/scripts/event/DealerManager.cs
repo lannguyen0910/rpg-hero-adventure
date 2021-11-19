@@ -11,16 +11,24 @@ public class DealerManager : MonoBehaviour
         eventDealers = new Dictionary<int, EventDealer>();
     }
 
-    public void addDealer(int code, EventDealer dealer)
+    public void AddDealer(int code, EventDealer dealer)
     {
         eventDealers.Add(code, dealer);
+    }
+
+    public void RemoveDealer(int code)
+    {
+        if (eventDealers.ContainsKey(code))
+        {
+            eventDealers.Remove(code);
+        }
     }
 
     public void process(GameObject source, Collider2D destination)
     {
         foreach (EventDealer dealer in eventDealers.Values)
         {
-            dealer.process(source, destination);
+            dealer.Process(source, destination);
         }
     }
 }

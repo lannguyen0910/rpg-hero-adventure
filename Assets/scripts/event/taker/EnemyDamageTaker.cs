@@ -14,7 +14,7 @@ public class EnemyDamageTaker : EventTaker
         status = gameObject.GetComponent<EnemyStatus>();
     }
 
-    public override void process(GameObject source)
+    public override void Process(GameObject source)
     {
         PlayerStatus playerStatus = source.GetComponent<PlayerStatus>();
         WeaponStatus weaponStatus = source.GetComponentInChildren<WeaponStatus>();

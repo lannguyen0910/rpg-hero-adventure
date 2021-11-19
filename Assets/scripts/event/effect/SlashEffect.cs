@@ -20,7 +20,7 @@ public class SlashEffect : EventEffect
         currentDelay = 0;
     }
 
-    public override void process(GameObject source)
+    public override void Process(GameObject source)
     {
         if (playerStatus == null || weaponStatus == null)
         {

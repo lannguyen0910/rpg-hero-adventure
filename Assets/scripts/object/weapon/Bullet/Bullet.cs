@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        effects.process(source);
+        effects.Process(source);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

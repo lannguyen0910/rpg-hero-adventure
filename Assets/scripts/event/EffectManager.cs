@@ -11,16 +11,24 @@ public class EffectManager : MonoBehaviour
         eventEffects = new Dictionary<int, EventEffect>();
     }
 
-    public void addEffect(int code, EventEffect effect)
+    public void AddEffect(int code, EventEffect effect)
     {
         eventEffects.Add(code, effect);
     }
 
-    public void process(GameObject source)
+    public void RemoveEffect(int code)
+    {
+        if (eventEffects.ContainsKey(code))
+        {
+            eventEffects.Remove(code);
+        }
+    }
+
+    public void Process(GameObject source)
     {
         foreach (EventEffect effect in eventEffects.Values)
         {
-            effect.process(source);
+            effect.Process(source);
         }
     }
 }

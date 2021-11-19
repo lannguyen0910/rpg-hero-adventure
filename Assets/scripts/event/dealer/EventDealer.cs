@@ -9,8 +9,13 @@ public abstract class EventDealer : MonoBehaviour
 
     protected void Start()
     {
-        gameObject.GetComponent<DealerManager>().addDealer(eventCode, this);
+        gameObject.GetComponent<DealerManager>().AddDealer(eventCode, this);
     }
 
-    public abstract void process(GameObject source, Collider2D destination);
+    public abstract void Process(GameObject source, Collider2D destination);
+
+    public void RemoveSelf()
+    {
+        Destroy(this);
+    }
 }

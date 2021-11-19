@@ -11,17 +11,26 @@ public class TakerManager : MonoBehaviour
         eventTakers = new Dictionary<int, EventTaker>();
     }
 
-    public void addTaker(int code, EventTaker taker)
+    public void AddTaker(int code, EventTaker taker)
     {
         eventTakers.Add(code, taker);
     }
 
-    public bool containTaker(int code)
+    public void RemoveTaker(int code)
+    {
+        if (eventTakers.ContainsKey(code))
+        {
+            
+            eventTakers.Remove(code);
+        }
+    }
+
+    public bool ContainsTaker(int code)
     {
         return eventTakers.ContainsKey(code);    
     }
 
-    public EventTaker getTaker(int code)
+    public EventTaker GetTaker(int code)
     {
         return eventTakers[code];
     }

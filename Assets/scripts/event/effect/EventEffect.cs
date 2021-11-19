@@ -9,8 +9,13 @@ public abstract class EventEffect : MonoBehaviour
 
     protected void Start()
     {
-        gameObject.GetComponent<EffectManager>().addEffect(eventCode, this);
+        gameObject.GetComponent<EffectManager>().AddEffect(eventCode, this);
     }
 
-    public abstract void process(GameObject source);
+    public abstract void Process(GameObject source);
+
+    public void RemoveSelf()
+    {
+        Destroy(this);
+    }
 }

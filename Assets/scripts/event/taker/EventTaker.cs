@@ -9,8 +9,13 @@ public abstract class EventTaker : MonoBehaviour
 
     protected void Start()
     {
-        gameObject.GetComponent<TakerManager>().addTaker(eventCode, this);
+        gameObject.GetComponent<TakerManager>().AddTaker(eventCode, this);
     }
 
-    public abstract void process(GameObject source);
+    public abstract void Process(GameObject source);
+
+    public void RemoveSelf()
+    {
+        Destroy(this);
+    }
 }
