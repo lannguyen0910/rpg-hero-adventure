@@ -26,6 +26,7 @@ public class PlayerStatus : MonoBehaviour
     // Other status
     float actionDelay = 0;
     bool isDashing = false;
+    float dashCooldown = 0;
 
     Animator anim;
     Rigidbody2D rigid;
@@ -42,11 +43,10 @@ public class PlayerStatus : MonoBehaviour
     {
         effects.Process(gameObject);
 
-        if (actionDelay > Global.EPS)
-        {
-            actionDelay -= Time.deltaTime;
-        }
-        else
+        dashCooldown -= Time.deltaTime;
+        actionDelay -= Time.deltaTime;
+
+        if (actionDelay < Global.EPS)
         {
             anim.SetInteger("actionType", -1);
             
@@ -54,6 +54,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 rigid.velocity = new Vector2(0, 0);
                 isDashing = false;
+                dashCooldown = 1f;
             }
         }
     }
@@ -77,6 +78,11 @@ public class PlayerStatus : MonoBehaviour
     public bool IsDashing()
     {
         return isDashing;
+    }
+
+    public bool IsAbleToDash()
+    {
+        return dashCooldown < Global.EPS;
     }
 
 }

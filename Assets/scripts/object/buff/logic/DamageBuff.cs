@@ -6,7 +6,7 @@ public class DamageBuff : Buff
 {
     public DamageBuff() : base(Global.DAMAGE_BUFF_CODE)
     {
-
+        description = "INCREASE DAMAGE";
     }
 
     public override void Process(GameObject target)

@@ -46,6 +46,7 @@ public class PlayerMeleeWeaponController : MonoBehaviour
         // Check dash input
         else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_3))
         {
+            if (!status.IsAbleToDash()) return;
             weaponholder.ProcessAction(Global.WEAPON_ACTION_3);
             anim.SetMeleeWeaponDashAnim();
         }

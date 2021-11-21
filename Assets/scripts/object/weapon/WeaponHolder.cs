@@ -43,7 +43,11 @@ public class WeaponHolder : MonoBehaviour
     public int GetCurrentWeaponType()
     {
         return currentWeapon;
+    }
 
+    public void SetCurrentWeaponType(int type)
+    {
+        currentWeapon = type;
     }
 
     public Weapon GetWeapon(int type)
@@ -54,6 +58,5 @@ public class WeaponHolder : MonoBehaviour
     public void ProcessAction(int code)
     {
         weapons[currentWeapon].ProcessAction(code);
-
     }
 }

@@ -17,6 +17,27 @@ TextureImporter:
   - first:
       213: -7542126609481511854
     second: DS DSi - From the Abyss - Misc & Backgrounds_4
+  - first:
+      213: 511848994217697661
+    second: DS DSi - From the Abyss - Misc & Backgrounds_5
+  - first:
+      213: -5418632888331895227
+    second: DS DSi - From the Abyss - Misc & Backgrounds_6
+  - first:
+      213: -8599019784540298551
+    second: DS DSi - From the Abyss - Misc & Backgrounds_7
+  - first:
+      213: 6610497839872115318
+    second: DS DSi - From the Abyss - Misc & Backgrounds_8
+  - first:
+      213: -2724970101712453348
+    second: DS DSi - From the Abyss - Misc & Backgrounds_9
+  - first:
+      213: 5596772396947760364
+    second: DS DSi - From the Abyss - Misc & Backgrounds_10
+  - first:
+      213: 4923310624910333311
+    second: DS DSi - From the Abyss - Misc & Backgrounds_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +136,7 @@ TextureImporter:
         height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 60, y: 20, z: 60, w: 28}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -154,10 +175,10 @@ TextureImporter:
         x: 863
         y: 272
         width: 93
-        height: 14
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 25, y: 5, z: 26, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -206,6 +227,153 @@ TextureImporter:
       bones: []
       spriteID: 25c45defecbf45790800000000000000
       internalID: -7542126609481511854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_5
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 2535
+        width: 258
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71acf6c2f37a1700800000000000000
+      internalID: 511848994217697661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_6
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 2462
+        width: 256
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0.45}
+      border: {x: 16, y: 18, z: 18, w: 23}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e7ab2e8162dc4b0800000000000000
+      internalID: -5418632888331895227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_7
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 423
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 19, y: 19, z: 19, w: 19}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c26be5c0152aa880800000000000000
+      internalID: -8599019784540298551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_8
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 811
+        width: 257
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672801ee2c43dbb50800000000000000
+      internalID: 6610497839872115318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_9
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 2296
+        width: 257
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c118ed74126fe2ad0800000000000000
+      internalID: -2724970101712453348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_10
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 2100
+        width: 258
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce468c097dabbad40800000000000000
+      internalID: 5596772396947760364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_11
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 69
+        width: 157
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75dfa4bdec135440800000000000000
+      internalID: 4923310624910333311
       vertices: []
       indices: 
       edges: []

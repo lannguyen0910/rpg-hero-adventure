@@ -109,4 +109,11 @@ public static class Global
         }
         return 0;
     }
+
+    public static void SetPlayerControlTo(GameObject player, bool flag)
+    {
+        player.GetComponent<PlayerMovementController>().enabled = flag;
+        player.GetComponent<PlayerMeleeWeaponController>().enabled = flag;
+        player.GetComponent<PlayerMagicWeaponController>().enabled = flag;
+    }
 }

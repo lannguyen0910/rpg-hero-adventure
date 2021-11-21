@@ -27,4 +27,5 @@ public class WeaponMeleeDashAction : WeaponAction
         playerStatus.SetDash(playerStatus.dashDelay);
         rigid.velocity = new Vector2(xSpeedAt[direction] * playerStatus.dashSpeed, ySpeedAt[direction] * playerStatus.dashSpeed);
     }
+
 }

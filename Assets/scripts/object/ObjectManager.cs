@@ -5,11 +5,13 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
+    GameObject player;
     [SerializeField]
-    private GameObject[] enemies;
+    GameObject[] enemies;
     [SerializeField]
-    private GameObject portal;
+    GameObject portal;
+    [SerializeField]
+    GameObject stageClearAnimation;
 
     bool stageEnd = false;
 
@@ -20,6 +22,7 @@ public class ObjectManager : MonoBehaviour
             player = GameObject.Find("Player");
             portal.GetComponent<Portal>().SetPlayer(player);
             GameObject.Find("Main Camera").GetComponent<CameraController>().SetTarget(player);
+            return;
         }
 
         if (stageEnd) return;
@@ -34,12 +37,10 @@ public class ObjectManager : MonoBehaviour
         }
         if (aliveEnemies == 0)
         {
+            // Generate buff here
+            if (stageClearAnimation != null) stageClearAnimation.SetActive(true);
             // Open portal
             portal.SetActive(true);
-
-            // Generate buff here
-            BuffManager.GetRandomBuffs()[0].Process(player);
-
             stageEnd = true;
         }
     }

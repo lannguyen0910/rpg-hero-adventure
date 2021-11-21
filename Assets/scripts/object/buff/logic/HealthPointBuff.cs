@@ -6,7 +6,7 @@ public class HealthPointBuff : Buff
 {
     public HealthPointBuff() : base(Global.HP_BUFF_CODE)
     {
-        
+        description = "INCREASE HEALTH";
     }
 
     public override void Process(GameObject target)

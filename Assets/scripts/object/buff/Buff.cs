@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Buff
 {
     protected int code;
+    protected string description;
 
     public Buff(int code)
     {
@@ -13,4 +14,9 @@ public abstract class Buff
     }
 
     public abstract void Process(GameObject target);
+
+    public string GetDescription()
+    {
+        return description;
+    }
 }

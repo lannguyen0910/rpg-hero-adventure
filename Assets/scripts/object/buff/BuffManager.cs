@@ -51,12 +51,13 @@ public static class BuffManager
             currentBuffList.Add(code);
             count++;
         }
-        Debug.Log(currentBuffList[0]);
         return result;
     }
 
     public static void ChooseBuff(int index)
     {
-        
+        // Can only have 1 special buff each
+        if (currentBuffList[index] > 100)
+            activeSpecialBuffs.Add(currentBuffList[index]);
     }
 }
