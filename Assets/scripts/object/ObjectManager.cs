@@ -13,13 +13,15 @@ public class ObjectManager : MonoBehaviour
 
     bool stageEnd = false;
 
-    void Start()
-    {
-        portal.GetComponent<Portal>().SetPlayer(player);
-    }
-
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+            portal.GetComponent<Portal>().SetPlayer(player);
+            GameObject.Find("Main Camera").GetComponent<CameraController>().SetTarget(player);
+        }
+
         if (stageEnd) return;
 
         int aliveEnemies = 0;
@@ -34,9 +36,9 @@ public class ObjectManager : MonoBehaviour
         {
             // Open portal
             portal.SetActive(true);
-            
-            // Generate buff here
 
+            // Generate buff here
+            BuffManager.GetRandomBuffs()[0].Process(player);
 
             stageEnd = true;
         }

@@ -17,6 +17,8 @@ public static class Global
     // Player constants
     public static int PLAYER_DIRECTION_COUNT = 8;
     public static int PLAYER_DIRECTION_BREAKPOINT = 4;
+    public static float DEFAULT_PLAYER_POS_X = 7;
+    public static float DEFAULT_PLAYER_POS_Y = 1;
 
     // Move code
     public static int MOVE_LEFT = (int)KeyCode.LeftArrow;
@@ -51,6 +53,11 @@ public static class Global
     public static int BULLET_BOUNCE_CODE = 102;
     public static int BULLET_CODE = 201;
     public static int EXPLOSION_CODE = 202;
+
+    // Buff code
+    public static int HP_BUFF_CODE = 1;
+    public static int DAMAGE_BUFF_CODE = 2;
+    public static int RANGE_BUFF_CODE = 3;
 
     // Variable name
     public static string DAMAGE_NAME = "damage";

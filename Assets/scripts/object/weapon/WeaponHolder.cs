@@ -23,7 +23,6 @@ public class WeaponHolder : MonoBehaviour
         {
             weapons[i] = weaponObjects[i].GetComponent<Weapon>();
         }
-        weaponObjects[1].SetActive(false);
     }
 
     void FixedUpdate()
@@ -37,9 +36,7 @@ public class WeaponHolder : MonoBehaviour
     public void ChangeWeapon()
     {
         if (changeDelay > Global.EPS) return;
-        weaponObjects[currentWeapon].SetActive(false);
         currentWeapon = (currentWeapon + 1) % weapons.Length;
-        weaponObjects[currentWeapon].SetActive(true);
         changeDelay = 0.5f;
     }
 

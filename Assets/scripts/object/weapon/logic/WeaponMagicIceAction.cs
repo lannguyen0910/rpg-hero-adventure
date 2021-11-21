@@ -28,7 +28,10 @@ public class WeaponMagicIceAction : WeaponAction
         anim = gameObject.GetComponent<WeaponAnimation>();
         weaponStatus = gameObject.GetComponent<WeaponStatus>();
         playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
+        
+        string bulletName = bulletPrototype.name;
         bulletPrototype = Instantiate(bulletPrototype);
+        bulletPrototype.name = bulletName;
         bulletPrototype.SetActive(false);
     }
 

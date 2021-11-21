@@ -8,8 +8,8 @@ public class CameraController : MonoBehaviour
 
     void Awake()
     {
+        target = GameObject.Find("Player");
         transform.position = new Vector3(Global.CAMERA_X, Global.CAMERA_MIN_Y, Global.CAMERA_Z);
-
     }
 
     // Update is called once per frame
@@ -27,5 +27,10 @@ public class CameraController : MonoBehaviour
         // Set new position
         transform.position = cameraPosition;
     
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
     }
 }

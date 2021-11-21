@@ -22,8 +22,11 @@ public class WeaponMeleeAttackAction : WeaponAction
         anim = gameObject.GetComponent<WeaponAnimation>();
         weaponStatus = gameObject.GetComponent<WeaponStatus>();
         playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
+        
         // Clone prefab instance
+        string hitboxName = hitboxPrototype.name;
         hitboxPrototype = Instantiate(hitboxPrototype);
+        hitboxPrototype.name = hitboxName;
         hitboxPrototype.SetActive(false);
     }
 

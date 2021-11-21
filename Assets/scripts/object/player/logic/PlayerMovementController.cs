@@ -24,8 +24,6 @@ public class PlayerMovementController : MonoBehaviour
         
     }
 
-    float lastTime = 0;
-
     void Update()
     {
         // Reset move speed each frame
