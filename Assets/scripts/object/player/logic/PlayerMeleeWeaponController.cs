@@ -21,18 +21,34 @@ public class PlayerMeleeWeaponController : MonoBehaviour
     void Update()
     {
         // Check if holding melee weapon
-        if (weaponholder.GetCurrentWeapon() != Global.MELEE_WEAPON) return;
+        if (weaponholder.GetCurrentWeaponType() != Global.MELEE_WEAPON) return;
         // Check if doing other action
         if (status.IsDelay()) return;
+        // Check change weapon
+        if (Input.GetKeyDown((KeyCode)Global.WEAPON_CHANGE))
+        {
+            weaponholder.ChangeWeapon();
+            return;
+        }
 
         // Check attack input
         if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_1))
         {
             weaponholder.ProcessAction(Global.WEAPON_ACTION_1);
-            anim.SetMeleeWeaponAttackAnim(status.attackSpeed);
+            anim.SetMeleeWeaponAttackAnim();
+        }
+        // Check guard input
+        else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_2))
+        {
+            weaponholder.ProcessAction(Global.WEAPON_ACTION_2);
+            anim.SetMeleeWeaponGuardAnim();
         }
         // Check dash input
+        else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_3))
+        {
+            weaponholder.ProcessAction(Global.WEAPON_ACTION_3);
+            anim.SetMeleeWeaponDashAnim();
+        }
 
-        // Check guard input
     }
 }

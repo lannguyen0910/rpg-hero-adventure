@@ -28,6 +28,7 @@ public class WeaponMeleeAttackAction : WeaponAction
         // Adjust direction
         Global.AdjustDirection(ref direction, Global.PLAYER_DIRECTION_BREAKPOINT);
 
+        /*
         // Create new hitbox
         GameObject hitbox = Instantiate(hitboxObject, transform.parent);
 
@@ -41,9 +42,8 @@ public class WeaponMeleeAttackAction : WeaponAction
 
         // Add hitbox's source
         hitbox.GetComponent<Bullet>().source = gameObject.transform.parent.parent.gameObject;
+         */
 
         playerStatus.SetDelay(playerStatus.attackSpeed);
-        anim.setWeaponAttackAnim(direction);
-
     }
 }

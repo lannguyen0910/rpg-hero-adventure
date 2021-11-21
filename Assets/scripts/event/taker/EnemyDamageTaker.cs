@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyDamageTaker : EventTaker
 {
+    [SerializeField]
+    float multiplier = 1;
+
     EnemyStatus status;
 
-    protected void Start()
+    new protected void Start()
     {
         eventCode = Global.DAMAGE_CODE;
         base.Start();
@@ -14,12 +17,13 @@ public class EnemyDamageTaker : EventTaker
         status = gameObject.GetComponent<EnemyStatus>();
     }
 
-    public override void Process(GameObject source)
+    public override void Process(GameObject source, VariableDictionary variables)
     {
-        PlayerStatus playerStatus = source.GetComponent<PlayerStatus>();
-        WeaponStatus weaponStatus = source.GetComponentInChildren<WeaponStatus>();
+        status.healthPoint -= (float)variables[Global.DAMAGE_NAME] * multiplier;
+    }
 
-        float damage = weaponStatus.damage;
-        status.health -= damage;
+    public void SetMultiplier(float multiplier)
+    {
+        this.multiplier = multiplier;
     }
 }

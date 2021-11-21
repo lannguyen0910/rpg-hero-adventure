@@ -10,8 +10,12 @@ public abstract class WeaponAction : MonoBehaviour
     protected void Start()
     {
         gameObject.GetComponent<Weapon>().AddAction(code, this);
-
     }
 
     public abstract void Process();
+
+    public void RemoveSelf()
+    {
+        Destroy(this);
+    }
 }

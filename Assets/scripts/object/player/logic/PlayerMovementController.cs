@@ -24,6 +24,8 @@ public class PlayerMovementController : MonoBehaviour
         
     }
 
+    float lastTime = 0;
+
     void Update()
     {
         // Reset move speed each frame
@@ -51,9 +53,11 @@ public class PlayerMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Set velocity for physics
-        rigidbody2d.velocity = new Vector2(speedX, speedY);
-
+        // Set velocity
+        if (!status.IsDashing())
+        {
+            rigidbody2d.velocity = new Vector2(speedX, speedY);
+        }
     }
 
     private void CheckMoveInput(int code, int sign, ref float speed, ref int prevAction)

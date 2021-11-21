@@ -32,7 +32,7 @@ public class Enemy1Behaviour : MonoBehaviour
     {
         if (status.actionDelay > 0) return;
         
-        if (status.health <= 0) Destroy(gameObject, 0);
+        if (status.healthPoint <= 0) Destroy(gameObject, 0);
 
         anim.setMoveAnim(direction);
     }
@@ -131,7 +131,7 @@ public class Enemy1Behaviour : MonoBehaviour
             slashAreaInstance.transform.localPosition = new Vector3(0, 0, 0);
             slashAreaInstance.transform.localScale = new Vector3(0.25f, 0.25f, 0);
             slashAreaInstance.transform.Rotate(0, 0, direction * -90);
-            slashAreaInstance.GetComponent<Bullet>().source = gameObject;
+            //slashAreaInstance.GetComponent<Hitbox>().Se = gameObject;
         }
     }
 

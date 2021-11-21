@@ -6,6 +6,8 @@ public abstract class EventDealer : MonoBehaviour
 {
     [SerializeField]
     protected int eventCode;
+    [SerializeField]
+    protected VariableDictionary variables = new VariableDictionary();
 
     protected void Start()
     {

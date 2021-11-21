@@ -11,13 +11,20 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         weaponActionDict = new Dictionary<int, WeaponAction>();
-
     }
 
     public void AddAction(int code, WeaponAction action)
     {
         weaponActionDict.Add(code, action);
+    }
 
+    public void RemoveAction(int code)
+    {
+        if (weaponActionDict.ContainsKey(code))
+        {
+            weaponActionDict[code].RemoveSelf();
+            weaponActionDict.Remove(code);
+        }
     }
 
     public void ProcessAction(int code)

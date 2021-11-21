@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class DamageDealer : EventDealer
 {
-    // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         eventCode = Global.DAMAGE_CODE;
         base.Start();
@@ -14,17 +13,19 @@ public class DamageDealer : EventDealer
 
     public override void Process(GameObject source, Collider2D destination)
     {
-        if (destination.isTrigger == false && source != destination.gameObject)
+        if (!destination.isTrigger && source != destination.gameObject)
         {
             Debug.Log("Hello " + destination.name);
             try
             {
-                destination.gameObject.GetComponent<TakerManager>().GetTaker(Global.DAMAGE_CODE).Process(source);
+                destination.gameObject.GetComponent<TakerManager>().GetTaker(Global.DAMAGE_CODE).Process(source, variables);
             }
-            catch (NullReferenceException ex)
-            {
-
-            }
+            catch (NullReferenceException) {}
         }
+    }
+
+    public void SetDamage(float damage)
+    {
+        variables[Global.DAMAGE_NAME] = damage;
     }
 }

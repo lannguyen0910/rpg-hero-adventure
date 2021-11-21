@@ -28,22 +28,32 @@ public static class Global
     public static int MELEE_WEAPON = 0;
     public static int MAGIC_WEAPON = 1;
 
+    public static int WEAPON_CHANGE = (int)KeyCode.LeftShift;
     public static int WEAPON_ACTION_1 = (int)KeyCode.C;
     public static int WEAPON_ACTION_2 = (int)KeyCode.X;
     public static int WEAPON_ACTION_3 = (int)KeyCode.Z;
 
-    public static int MELEE_ATTACK = 1;
-    public static int MELEE_GUARD = 2;
-    public static int MELEE_DASH = 3;
+    public static int MELEE_ATTACK = 0;
+    public static int MELEE_GUARD = 1;
+    public static int MELEE_DASH = 2;
 
-    public static int MAGIC_FIRE_ATTACK = 1;
-    public static int MAGIC_ICE_ATTACK = 2;
-    public static int MAGIC__ATTACK = 3;
+    public static int MAGIC_CHARGE = 0;
+    public static int MAGIC_CAST = 999;
 
     // Event code
-    public static int DAMAGE_CODE = 1;
+    public static int INVINCIBLE_CODE = 10001;
+    public static int GUARD_CODE = 10002;
 
+    public static int DAMAGE_CODE = 001;
+    public static int SLASH_CODE = 051;
 
+    public static int BULLET_DISAPPEAR_CODE = 101;
+    public static int BULLET_BOUNCE_CODE = 102;
+    public static int BULLET_CODE = 201;
+    public static int EXPLOSION_CODE = 202;
+
+    // Variable name
+    public static string DAMAGE_NAME = "damage";
 
     // Other constants
     public static float INF = 1000000000f;
@@ -52,6 +62,12 @@ public static class Global
     public static float OFFSET = 0.1f;
 
     // Global function
+
+    public static bool IsGreaterEqual(float a, float b)
+    {
+        return Mathf.Abs(a - b) <= EPS || a > b;
+    }
+
     public static float CalculateDistance(Vector3 a, Vector3 b)
     {
         return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);

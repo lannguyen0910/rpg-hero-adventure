@@ -6,12 +6,14 @@ public class WeaponAnimation : MonoBehaviour
 {
     public Sprite[] sprites = new Sprite[3];
 
+    SpriteRenderer spriteRenderer;
+
     int[] spriteForAnimation1 = new int[5] { 1, 1, 1, 1, 1 };
     int[] spriteForAnimation2 = new int[5] { 0, 1, 2, 1, 0 };
-
-    SpriteRenderer spriteRenderer;
-    float animationUpdate = -1;
     int direction = 0;
+
+    float meleeAttackAnimDelay = -1;
+    float magicCastAnimDelay = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -22,33 +24,73 @@ public class WeaponAnimation : MonoBehaviour
 
     void Update()
     {
-        if (animationUpdate <= 0)
+        // Turn off sprite when action is finished
+        if (meleeAttackAnimDelay < Global.EPS && magicCastAnimDelay < Global.EPS)
         {
             spriteRenderer.enabled = false;
             return;
         }
 
-        if (animationUpdate <= 25.0f / 60.0f)
+        // Melee attack has 2 phase
+        if (meleeAttackAnimDelay <= 0.42f)
+        {
             spriteRenderer.sprite = sprites[spriteForAnimation2[direction]];
-
+            spriteRenderer.sortingOrder = 1;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (animationUpdate < 0) return;
-
-        animationUpdate -= Time.deltaTime;
+        if (meleeAttackAnimDelay > Global.EPS)
+        {
+            meleeAttackAnimDelay -= Time.deltaTime;
+        }
+        if (magicCastAnimDelay > Global.EPS)
+        {
+            magicCastAnimDelay -= Time.deltaTime;
+        }
     }
 
-    public void setWeaponAttackAnim(int curDirection)
+    public void SetDirection(int direction)
     {
-        if (curDirection > 4)
-            curDirection -= (curDirection - 4) * 2;
+        this.direction = direction;
+    }
 
-        direction = curDirection;
-        animationUpdate = 40.0f / 60.0f;
-        spriteRenderer.enabled = true;
+    public void SetWeaponAttackAnim()
+    {
+        meleeAttackAnimDelay = 0.67f;
+
         spriteRenderer.sprite = sprites[spriteForAnimation1[direction]];
+        spriteRenderer.sortingOrder = 3;
+        spriteRenderer.enabled = true;
+    }
+
+    public void SetWeaponChargeAnim()
+    {
+        magicCastAnimDelay = 1000000f;
+        meleeAttackAnimDelay = 1000000f;
+
+        spriteRenderer.sprite = sprites[spriteForAnimation1[direction]];
+        spriteRenderer.sortingOrder = 3;
+        spriteRenderer.enabled = true;
+    }
+
+    public void SetWeaponCastAnim(bool castFlag)
+    {
+        if (castFlag)
+        {
+            magicCastAnimDelay = 0.33f;
+            meleeAttackAnimDelay = 0f;
+        }
+        else
+        {
+            magicCastAnimDelay = 0f;
+            meleeAttackAnimDelay = 0f;
+            spriteRenderer.enabled = false;
+        }
+
+        spriteRenderer.sprite = sprites[spriteForAnimation2[direction]];
+        spriteRenderer.sortingOrder = 1;
     }
 }

@@ -13,14 +13,16 @@ public class TakerManager : MonoBehaviour
 
     public void AddTaker(int code, EventTaker taker)
     {
-        eventTakers.Add(code, taker);
+        if (eventTakers.ContainsKey(code))
+            eventTakers[code] = taker;
+        else
+            eventTakers.Add(code, taker);
     }
 
     public void RemoveTaker(int code)
     {
         if (eventTakers.ContainsKey(code))
         {
-            
             eventTakers.Remove(code);
         }
     }

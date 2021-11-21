@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Hitbox : MonoBehaviour
 {
     [SerializeField]
-    public GameObject source;
+    GameObject source;
 
     DealerManager dealers;
     TakerManager takers;
@@ -19,18 +19,17 @@ public class Bullet : MonoBehaviour
         effects = gameObject.GetComponent<EffectManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         effects.Process(source);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        dealers.process(source, collision);
+        dealers.Process(source, collision);
     }
 
-    public void setSource(GameObject gameObject)
+    public void SetSource(GameObject gameObject)
     {
         source = gameObject;
     }

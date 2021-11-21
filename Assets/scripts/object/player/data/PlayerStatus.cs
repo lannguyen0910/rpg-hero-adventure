@@ -6,31 +6,53 @@ using UnityEngine.SceneManagement;
 public class PlayerStatus : MonoBehaviour
 {
     // Normal status
+    public float maxHealthPoint = 100f;
     public float healthPoint = 100f;
     public float moveSpeed = 5f;
+    // Melee status
     public float attackSpeed = 0.66f;
-
+    public float shieldDelay = 1f;
+    public float dashSpeed = 15f;
+    public float dashDelay = 0.1f;
+    // Magic status
+    public float chargeSpeed = 1.17f;
+    public float chargeDelay = 0.33f;
+    public float castDelay = 0.33f;
+    // Movement status
     public int direction = 0;
+    public int actionType = -1;
+    // Other status
+    float actionDelay = 0;
+    bool isDashing = false;
 
     Animator anim;
-    float actionDelay = 0;
+    Rigidbody2D rigid;
+    EffectManager effects;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-
+        rigid = gameObject.GetComponent<Rigidbody2D>();
+        effects = gameObject.GetComponent<EffectManager>();
     }
 
     void FixedUpdate()
     {
+        effects.Process(gameObject);
+
         if (actionDelay > Global.EPS)
         {
             actionDelay -= Time.deltaTime;
-            anim.SetFloat("actionDelay", actionDelay);
         }
         else
         {
             anim.SetInteger("actionType", -1);
+            
+            if (isDashing)
+            {
+                rigid.velocity = new Vector2(0, 0);
+                isDashing = false;
+            }
         }
     }
 
@@ -43,4 +65,16 @@ public class PlayerStatus : MonoBehaviour
     {
         actionDelay = delay;
     }
+
+    public void SetDash(float delay)
+    {
+        actionDelay = delay;
+        isDashing = true;
+    }
+
+    public bool IsDashing()
+    {
+        return isDashing;
+    }
+
 }

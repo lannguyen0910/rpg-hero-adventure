@@ -12,7 +12,7 @@ public abstract class EventTaker : MonoBehaviour
         gameObject.GetComponent<TakerManager>().AddTaker(eventCode, this);
     }
 
-    public abstract void Process(GameObject source);
+    public abstract void Process(GameObject source, VariableDictionary variables);
 
     public void RemoveSelf()
     {
