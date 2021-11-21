@@ -61,6 +61,9 @@ public static class Global
     public static float PI = 3.1416f;
     public static float OFFSET = 0.1f;
 
+    public static Vector2 VECTOR_UNIT = new Vector2(0, -1);
+    public static float ANGLE_PER_DIRECTION = 45;
+
     // Global function
 
     public static bool IsGreaterEqual(float a, float b)
@@ -73,6 +76,11 @@ public static class Global
         return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
     }
 
+    public static float CalculateAngleBetween(Vector2 a, Vector2 b)
+    {
+        return Vector2.Angle(a, b);
+    }
+
     public static bool AdjustDirection(ref int direction, int breakpoint)
     {
         if (direction > breakpoint)
@@ -81,5 +89,17 @@ public static class Global
             return true;
         }
         return false;
+    }
+
+    public static int NormalizeDirection(float angle)
+    {
+        for (int i = 0; i < PLAYER_DIRECTION_COUNT; i++)
+        {
+            float left = ANGLE_PER_DIRECTION * i - ANGLE_PER_DIRECTION / 2;
+            float right = ANGLE_PER_DIRECTION * i + ANGLE_PER_DIRECTION / 2;
+            if (IsGreaterEqual(right, angle) && IsGreaterEqual(angle, left))
+                return i;
+        }
+        return 0;
     }
 }

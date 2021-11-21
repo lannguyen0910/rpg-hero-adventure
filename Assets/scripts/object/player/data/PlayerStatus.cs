@@ -11,6 +11,8 @@ public class PlayerStatus : MonoBehaviour
     public float moveSpeed = 5f;
     // Melee status
     public float attackSpeed = 0.66f;
+    public float readySpeed = 0.25f;
+    public float slashSpeed = 0.17f;
     public float shieldDelay = 1f;
     public float dashSpeed = 15f;
     public float dashDelay = 0.1f;

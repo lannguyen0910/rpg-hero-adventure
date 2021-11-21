@@ -26,6 +26,8 @@ public class WeaponMagicExplodeAction : WeaponAction
         anim = gameObject.GetComponent<WeaponAnimation>();
         weaponStatus = gameObject.GetComponent<WeaponStatus>();
         playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
+        bulletPrototype = Instantiate(bulletPrototype);
+        bulletPrototype.SetActive(false);
     }
 
     void FixedUpdate()
@@ -54,6 +56,7 @@ public class WeaponMagicExplodeAction : WeaponAction
                 // Create a normal fireball
                 GameObject source = gameObject.transform.parent.parent.gameObject;
                 bullet = Instantiate(bulletPrototype, transform.parent);
+                bullet.SetActive(true);
                 bullet.GetComponent<Hitbox>().SetSource(source);
                 bullet.transform.parent = null;
                 bullet.transform.position = new Vector3(source.transform.position.x, source.transform.position.y, 0);

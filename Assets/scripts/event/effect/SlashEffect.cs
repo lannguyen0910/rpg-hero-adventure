@@ -4,51 +4,53 @@ using UnityEngine;
 
 public class SlashEffect : EventEffect
 {
-    float currentDelay = 0;
+    float readyDelay = 0f;
+    float slashDelay = 0f;
+    float maxDelay = Global.INF;
+    float delay = -Global.INF;
 
-    float damage = 0f;
-    float delay = 0f;
+    Rigidbody2D rigid;
 
-    PlayerStatus playerStatus = null;
-    WeaponStatus weaponStatus = null;
-
-    void Start()
+    new void Start()
     {
-        eventCode = 2;
+        eventCode = Global.SLASH_CODE;
         base.Start();
 
-        currentDelay = 0;
+        rigid = gameObject.GetComponent<Rigidbody2D>();
     }
 
     public override void Process(GameObject source)
     {
-        if (playerStatus == null || weaponStatus == null)
-        {
-            playerStatus = source.GetComponent<PlayerStatus>();
-            weaponStatus = source.transform.GetChild(0).GetChild(0).gameObject.GetComponent<WeaponStatus>();
+        delay += Time.deltaTime;
 
-            damage = weaponStatus.damage;
-            delay = playerStatus.attackSpeed + weaponStatus.bonusAttackSpeed;
-        }
-
-        currentDelay += Time.deltaTime;
-
-        if (currentDelay >= delay * 15f / 40f)
+        // Turn on hitbox
+        if (delay >= readyDelay)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<PolygonCollider2D>().enabled = true;
         }
-
-        if (currentDelay >= delay * 30f / 40f)
+        // Turn off hitbox after sometime
+        if (delay >= readyDelay + slashDelay)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
-
-        if (currentDelay >= delay)
+        // Destroy if anim is over
+        if (Global.IsGreaterEqual(delay, maxDelay))
         {
-            currentDelay = 0;
-            Destroy(gameObject, 0);
+            Destroy(gameObject);
         }
+    }
+
+    public void SetDelay(float delay)
+    {
+        this.maxDelay = delay;
+        this.delay = 0;
+    }
+
+    public void SetAnimDelay(float readyDelay, float slashDelay)
+    {
+        this.readyDelay = readyDelay;
+        this.slashDelay = slashDelay;
     }
 }

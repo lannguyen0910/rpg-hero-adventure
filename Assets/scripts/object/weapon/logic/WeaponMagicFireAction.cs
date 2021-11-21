@@ -16,8 +16,7 @@ public class WeaponMagicFireAction : WeaponAction
     float chargeTime = 0f;
     int damageMultiplier = 1;
 
-    int[] xDirectionAt = new int[8] { 0, -1, -1, -1, 0, 1, 1, 1 };
-    int[] yDirectionAt = new int[8] { -1, -1, 0, 1, 1, 1, 0, -1 };
+    Vector2 lookVector = Global.VECTOR_UNIT;
 
     new void Start()
     {
@@ -29,6 +28,8 @@ public class WeaponMagicFireAction : WeaponAction
         anim = gameObject.GetComponent<WeaponAnimation>();
         weaponStatus = gameObject.GetComponent<WeaponStatus>();
         playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
+        bulletPrototype = Instantiate(bulletPrototype);
+        bulletPrototype.SetActive(false);
     }
 
     void FixedUpdate()
@@ -42,13 +43,24 @@ public class WeaponMagicFireAction : WeaponAction
             ((DamageDealer)(bullet.GetComponent<DealerManager>().GetDealer(Global.DAMAGE_CODE)))
                 .SetDamage(weaponStatus.damage * damageMultiplier);
             ((BulletEffect)(bullet.GetComponent<EffectManager>().GetEffect(Global.BULLET_CODE)))
-                .SetDirection(new Vector2(xDirectionAt[playerStatus.direction], yDirectionAt[playerStatus.direction]));
+                .SetDirection(lookVector);
             bullet = null;
         }
     }
 
     public override void Process()
     {
+        // Get enemy position and calculate direction
+        GameObject source = gameObject.transform.parent.parent.gameObject;
+        Vector3 sourcePosition = source.transform.position;
+        Vector3 targetPosition = GameObject.Find("ObjectManager").GetComponent<ObjectManager>().GetNearestEnemyPosition();
+        lookVector = new Vector2(targetPosition.x - sourcePosition.x, targetPosition.y - sourcePosition.y);
+        // Calculate angle for rotation
+        float angle = Global.CalculateAngleBetween(Global.VECTOR_UNIT, lookVector);
+        if (lookVector.x > 0) angle = 360 - angle;
+        // Set real direction
+        playerStatus.direction = Global.NormalizeDirection(angle);
+
         if (isCharging)
         {
             playerStatus.SetDelay(playerStatus.castDelay);
@@ -57,20 +69,21 @@ public class WeaponMagicFireAction : WeaponAction
             if (Global.IsGreaterEqual(chargeTime, playerStatus.chargeSpeed))
             {
                 // Create a normal fireball
-                GameObject source = gameObject.transform.parent.parent.gameObject;
                 bullet = Instantiate(bulletPrototype, transform.parent);
+                bullet.SetActive(true);
+                // Setup position, rotation and scaling
                 bullet.GetComponent<Hitbox>().SetSource(source);
                 bullet.transform.parent = null;
                 bullet.transform.position = new Vector3(source.transform.position.x, source.transform.position.y, 0);
                 bullet.transform.localScale = bulletPrototype.transform.localScale;
                 bullet.transform.localRotation = bulletPrototype.transform.localRotation;
-                bullet.transform.Rotate(0, 0, playerStatus.direction * -45);
+                bullet.transform.Rotate(0, 0, -angle);
                 damageMultiplier = 1;
                 
                 if (Global.IsGreaterEqual(chargeTime, playerStatus.chargeSpeed * 2 + playerStatus.chargeDelay))
                 {
                     // Create a bigger fireball
-                    bullet.transform.localScale = new Vector3(bullet.transform.localScale.x * 1.5f, bullet.transform.localScale.y * 1.5f, 0);
+                    bullet.transform.localScale *= 1.5f;
                     damageMultiplier = 2;
                 }
             }

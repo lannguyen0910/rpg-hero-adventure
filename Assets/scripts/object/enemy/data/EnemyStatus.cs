@@ -12,4 +12,10 @@ public class EnemyStatus : MonoBehaviour
 
     public float actionDelay;
     public float detectDistance = 7;
+
+    void Update()
+    {
+        if (healthPoint < Global.EPS)
+            Destroy(gameObject);
+    }
 }

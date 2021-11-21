@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class ObjectManager : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject[] enemies;
-    public GameObject portal;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject[] enemies;
+    [SerializeField]
+    private GameObject portal;
 
-    bool done = false;
+    bool stageEnd = false;
 
     void Start()
     {
@@ -17,7 +20,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        if (done) return;
+        if (stageEnd) return;
 
         int aliveEnemies = 0;
         for (int i = 0; i < enemies.Length; i++)
@@ -29,18 +32,25 @@ public class EnemyManager : MonoBehaviour
         }
         if (aliveEnemies == 0)
         {
+            // Open portal
             portal.SetActive(true);
+            
             // Generate buff here
+
+
+            stageEnd = true;
         }
     }
 
-    public Vector3 GetNearestEnemyPosition(Vector3 position)
+    public Vector3 GetNearestEnemyPosition()
     {
+        Vector3 position = player.transform.position;
         Vector3 result = transform.position;
         float minDistance = Global.INF;
 
         foreach (GameObject enemy in enemies)
         {
+            if (enemy == null) continue;
             float distance = Global.CalculateDistance(enemy.transform.position, position);
             if (distance < minDistance)
             {
