@@ -47,6 +47,12 @@ TextureImporter:
   - first:
       213: -4603033408699558855
     second: DS DSi - From the Abyss - Misc & Backgrounds_14
+  - first:
+      213: 1441146145375257275
+    second: DS DSi - From the Abyss - Misc & Backgrounds_15
+  - first:
+      213: 8535359367592803283
+    second: DS DSi - From the Abyss - Misc & Backgrounds_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -446,6 +452,48 @@ TextureImporter:
       bones: []
       spriteID: 9341531b08dbe10c0800000000000000
       internalID: -4603033408699558855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_15
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1625
+        width: 253
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb20480a8cafff310800000000000000
+      internalID: 1441146145375257275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_16
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 1352
+        width: 88
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbfbaf5f10b37670800000000000000
+      internalID: 8535359367592803283
       vertices: []
       indices: 
       edges: []

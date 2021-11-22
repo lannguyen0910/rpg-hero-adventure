@@ -9,6 +9,11 @@ public class StageClearController : MonoBehaviour
 
     float delay = 0f;
 
+    void Start()
+    {
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.VICTORY_AUDIO_CODE);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

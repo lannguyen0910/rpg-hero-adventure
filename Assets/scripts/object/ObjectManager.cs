@@ -23,6 +23,19 @@ public class ObjectManager : MonoBehaviour
             if (player == null) return;
             portal.GetComponent<Portal>().SetPlayer(player);
             GameObject.Find("Main Camera").GetComponent<CameraController>().SetTarget(player);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i] != null)
+                {
+                    enemies[i].GetComponent<EnemyBehaviour>().SetTarget(player);
+                }
+            }
+        }
+
+        if (player.GetComponent<PlayerStatus>().healthPoint < Global.EPS)
+        {
+            GameObject.Find("Canvas").transform.Find("Lose").gameObject.SetActive(true);
+            Destroy(player);
         }
 
         if (stageEnd) return;

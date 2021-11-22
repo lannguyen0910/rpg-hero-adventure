@@ -21,6 +21,7 @@ public class SlashEffect : EventEffect
 
     public override void Process(GameObject source)
     {
+        rigid.velocity = new Vector2(0.001f, 0.001f);
         delay += Time.deltaTime;
 
         // Turn on hitbox

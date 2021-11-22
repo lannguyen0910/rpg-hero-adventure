@@ -70,13 +70,15 @@ public static class Global
     public static int CAST_AUDIO_CODE = 7;
     public static int HIT_AUDIO_CODE = 8;
     public static int GETHIT_AUDIO_CODE = 9;
+    public static int VICTORY_AUDIO_CODE = 10;
+    public static int LOSE_AUDIO_CODE = 11;
 
     // Variable name
     public static string DAMAGE_NAME = "damage";
 
     // Other constants
     public static float INF = 1000000000f;
-    public static float EPS = 0.00001f;
+    public static float EPS = 0.0001f;
     public static float PI = 3.1416f;
     public static float OFFSET = 0.1f;
 
@@ -126,6 +128,18 @@ public static class Global
         {
             float left = ANGLE_PER_DIRECTION * i - ANGLE_PER_DIRECTION / 2;
             float right = ANGLE_PER_DIRECTION * i + ANGLE_PER_DIRECTION / 2;
+            if (IsGreaterEqual(right, angle) && IsGreaterEqual(angle, left))
+                return i;
+        }
+        return 0;
+    }
+
+    public static int NormalizeDirection(float angle, bool flag)
+    {
+        for (int i = 0; i < PLAYER_DIRECTION_COUNT / 2; i++)
+        {
+            float left = 2 * ANGLE_PER_DIRECTION * i - ANGLE_PER_DIRECTION;
+            float right = 2 * ANGLE_PER_DIRECTION * i + ANGLE_PER_DIRECTION;
             if (IsGreaterEqual(right, angle) && IsGreaterEqual(angle, left))
                 return i;
         }
