@@ -63,6 +63,7 @@ public class PauseController : MonoBehaviour
 
     public void ExitGame()
     {
+        PlayerStorage.SaveData();
         Debug.Log("Quit");
         Application.Quit();
     }
@@ -78,18 +79,25 @@ public class PauseController : MonoBehaviour
         {
             currentOption = 1;
             border.transform.localPosition = new Vector3(0, option1.transform.localPosition.y + 4, 0);
+
+            GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.HOVER0_AUDIO_CODE);
         }
         else if (currentOption == 1 && d == -1)
         {
             currentOption = 0;
             border.transform.localPosition = new Vector3(0, option0.transform.localPosition.y + 4, 0);
+
+            GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.HOVER0_AUDIO_CODE);
         }
     }
 
     void SelectOption()
     {
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.CLICK_AUDIO_CODE);
+
         if (currentOption == 0) ResumeGame();
         else if (currentOption == 1) ExitGame();
+
     }
 
 }

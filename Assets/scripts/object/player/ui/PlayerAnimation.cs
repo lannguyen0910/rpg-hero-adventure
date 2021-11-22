@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField]
-    GameObject meleeWeapon;
-    [SerializeField]
-    GameObject magicWeapon;
+    public GameObject meleeWeapon;
+    public GameObject magicWeapon;
     [SerializeField]
     GameObject chargeAura;
     [SerializeField]
@@ -29,7 +27,7 @@ public class PlayerAnimation : MonoBehaviour
     int[] stateSpeedX = new int[DIRECTION_COUNT] { 0, -1, -1, -1, 0, 1, 1, 1 };
     int[] stateSpeedY = new int[DIRECTION_COUNT] { -1, -1, 0, 1, 1, 1, 0, -1 };
 
-    void Awake()
+    void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         status = gameObject.GetComponent<PlayerStatus>();
@@ -79,6 +77,8 @@ public class PlayerAnimation : MonoBehaviour
 
         meleeWeaponAnim.SetDirection(direction);
         meleeWeaponAnim.SetWeaponAttackAnim();
+
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.SLASH_AUDIO_CODE);
     }
 
     public void SetMeleeWeaponGuardAnim()
@@ -112,6 +112,8 @@ public class PlayerAnimation : MonoBehaviour
 
         magicWeaponAnim.SetDirection(direction);
         magicWeaponAnim.SetWeaponChargeAnim();
+
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.CHARGE_AUDIO_CODE);
     }
 
     public void SetMagicWeaponCastAnim()
@@ -119,14 +121,18 @@ public class PlayerAnimation : MonoBehaviour
         chargeAnim.SetBool("isCharging", false);
         anim.SetInteger("actionType", status.actionType);
 
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().StopAudio(Global.CHARGE_AUDIO_CODE);
+        
         if (status.actionType == Global.MAGIC_CAST)
         {
             magicWeaponAnim.SetWeaponCastAnim(true);
+            GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.CAST_AUDIO_CODE);
         }
         else
         {
             magicWeaponAnim.SetWeaponCastAnim(false);
         }
+
     }
 
     void AdjustDirection(ref int direction)
@@ -141,4 +147,9 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        meleeWeaponAnim = meleeWeapon.GetComponent<WeaponAnimation>();
+        magicWeaponAnim = magicWeapon.GetComponent<WeaponAnimation>();
+    }
 }

@@ -103,6 +103,7 @@ public class StartGameController : MonoBehaviour
         if (menu.activeInHierarchy) return;
         if (currentOption + d >= 0 && currentOption + d < 3)
         {
+            GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.HOVER0_AUDIO_CODE);
             currentOption += d;
             border.transform.localPosition = new Vector3(0, options[currentOption].transform.localPosition.y, 0);
         }
@@ -110,6 +111,7 @@ public class StartGameController : MonoBehaviour
 
     void SelectOption()
     {
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.CLICK_AUDIO_CODE);
         if (menu.activeInHierarchy)
         {
             menu.SetActive(false);

@@ -20,6 +20,7 @@ public class StageTransitionController : MonoBehaviour
             if (!already && Global.IsGreaterEqual(delay, 0.5f))
             {
                 already = true;
+                if (destination != "Stage 1") PlayerStorage.gold += (destination[6] - '0' - 1) * 20;
                 StartCoroutine(NextStageLoad());
             }
         }

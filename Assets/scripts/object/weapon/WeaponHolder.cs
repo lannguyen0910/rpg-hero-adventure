@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] weaponObjects;
+    public GameObject[] weaponObjects = new GameObject[2];
 
     PlayerStatus status;
 
@@ -19,6 +18,14 @@ public class WeaponHolder : MonoBehaviour
 
         // Get weapon props
         weapons = new Weapon[weaponObjects.Length];
+        for (int i = 0; i < weapons.Length; ++i)
+        {
+            weapons[i] = weaponObjects[i].GetComponent<Weapon>();
+        }
+    }
+
+    public void Reset()
+    {
         for (int i = 0; i < weapons.Length; ++i)
         {
             weapons[i] = weaponObjects[i].GetComponent<Weapon>();
@@ -55,8 +62,8 @@ public class WeaponHolder : MonoBehaviour
         return weapons[type];    
     }
 
-    public void ProcessAction(int code)
+    public bool ProcessAction(int code)
     {
-        weapons[currentWeapon].ProcessAction(code);
+        return weapons[currentWeapon].ProcessAction(code);
     }
 }

@@ -27,12 +27,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void ProcessAction(int code)
+    public bool ProcessAction(int code)
     {
         if (weaponActionDict.ContainsKey(code))
         {
             weaponActionDict[code].Process();
+            return true;
         }
-
+        return false;
     }
 }

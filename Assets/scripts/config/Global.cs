@@ -59,6 +59,18 @@ public static class Global
     public static int DAMAGE_BUFF_CODE = 2;
     public static int RANGE_BUFF_CODE = 3;
 
+    // Audio code
+    public static int BACKGROUND_AUDIO_CODE = 0;
+    public static int HOVER0_AUDIO_CODE = 1;
+    public static int HOVER1_AUDIO_CODE = 2;
+    public static int BUY_AUDIO_CODE = 3;
+    public static int CLICK_AUDIO_CODE = 4;
+    public static int SLASH_AUDIO_CODE = 5;
+    public static int CHARGE_AUDIO_CODE = 6;
+    public static int CAST_AUDIO_CODE = 7;
+    public static int HIT_AUDIO_CODE = 8;
+    public static int GETHIT_AUDIO_CODE = 9;
+
     // Variable name
     public static string DAMAGE_NAME = "damage";
 

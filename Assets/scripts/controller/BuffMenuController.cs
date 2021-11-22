@@ -43,6 +43,8 @@ public class BuffMenuController : MonoBehaviour
         {
             currentOption += d;
             border.transform.localPosition = new Vector3(0, options[currentOption].transform.localPosition.y + 4, 0);
+
+            GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.HOVER0_AUDIO_CODE);
         }
     }
 
@@ -57,5 +59,7 @@ public class BuffMenuController : MonoBehaviour
         Time.timeScale = 1f;
 
         gameObject.SetActive(false);
+
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.CLICK_AUDIO_CODE);
     }
 }

@@ -38,6 +38,15 @@ TextureImporter:
   - first:
       213: 4923310624910333311
     second: DS DSi - From the Abyss - Misc & Backgrounds_11
+  - first:
+      213: 6523373147294084867
+    second: DS DSi - From the Abyss - Misc & Backgrounds_12
+  - first:
+      213: 2885222601647811881
+    second: DS DSi - From the Abyss - Misc & Backgrounds_13
+  - first:
+      213: -4603033408699558855
+    second: DS DSi - From the Abyss - Misc & Backgrounds_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -366,7 +375,7 @@ TextureImporter:
         width: 157
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,6 +383,69 @@ TextureImporter:
       bones: []
       spriteID: f75dfa4bdec135440800000000000000
       internalID: 4923310624910333311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1654
+        width: 254
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f29cda05da78a50800000000000000
+      internalID: 6523373147294084867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1865
+        width: 252
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d652d6bae5a0820800000000000000
+      internalID: 2885222601647811881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - From the Abyss - Misc & Backgrounds_14
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 2632
+        width: 129
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9341531b08dbe10c0800000000000000
+      internalID: -4603033408699558855
       vertices: []
       indices: 
       edges: []

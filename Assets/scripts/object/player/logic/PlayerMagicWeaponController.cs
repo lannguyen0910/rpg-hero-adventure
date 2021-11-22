@@ -58,23 +58,29 @@ public class PlayerMagicWeaponController : MonoBehaviour
         // Check charge fireball input
         if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_1))
         {
-            currentAction = Global.WEAPON_ACTION_1;
-            weaponholder.ProcessAction(Global.WEAPON_ACTION_1);
-            anim.SetMagicWeaponChargeAnim();
+            if (weaponholder.ProcessAction(Global.WEAPON_ACTION_1))
+            {
+                currentAction = Global.WEAPON_ACTION_1;
+                anim.SetMagicWeaponChargeAnim();
+            }
         }
         // Check charge explode input
         else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_2))
         {
-            currentAction = Global.WEAPON_ACTION_2;
-            weaponholder.ProcessAction(Global.WEAPON_ACTION_2);
-            anim.SetMagicWeaponChargeAnim();
+            if (weaponholder.ProcessAction(Global.WEAPON_ACTION_2))
+            {
+                currentAction = Global.WEAPON_ACTION_2;
+                anim.SetMagicWeaponChargeAnim();
+            }
         }
         // Check charge iceball input
         else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_3))
         {
-            currentAction = Global.WEAPON_ACTION_3;
-            weaponholder.ProcessAction(Global.WEAPON_ACTION_3);
-            anim.SetMagicWeaponChargeAnim();
+            if (weaponholder.ProcessAction(Global.WEAPON_ACTION_3))
+            {
+                currentAction = Global.WEAPON_ACTION_3;
+                anim.SetMagicWeaponChargeAnim();
+            }
         }
 
     }

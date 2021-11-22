@@ -19,6 +19,7 @@ public class PlayerDamageTaker : EventTaker
 
     public override void Process(GameObject source, VariableDictionary variables)
     {
+        GameObject.Find("AudioManager").gameObject.GetComponent<AudioManager>().PlayAudio(Global.GETHIT_AUDIO_CODE);
         status.healthPoint -= (float)variables[Global.DAMAGE_NAME] * multiplier;
     }
 

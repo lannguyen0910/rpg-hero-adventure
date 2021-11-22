@@ -34,21 +34,21 @@ public class PlayerMeleeWeaponController : MonoBehaviour
         // Check attack input
         if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_1))
         {
-            weaponholder.ProcessAction(Global.WEAPON_ACTION_1);
-            anim.SetMeleeWeaponAttackAnim();
+            if (weaponholder.ProcessAction(Global.WEAPON_ACTION_1))
+                anim.SetMeleeWeaponAttackAnim();
         }
         // Check guard input
         else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_2))
         {
-            weaponholder.ProcessAction(Global.WEAPON_ACTION_2);
-            anim.SetMeleeWeaponGuardAnim();
+            if (weaponholder.ProcessAction(Global.WEAPON_ACTION_2))
+                anim.SetMeleeWeaponGuardAnim();
         }
         // Check dash input
         else if (Input.GetKeyDown((KeyCode)Global.WEAPON_ACTION_3))
         {
             if (!status.IsAbleToDash()) return;
-            weaponholder.ProcessAction(Global.WEAPON_ACTION_3);
-            anim.SetMeleeWeaponDashAnim();
+            if (weaponholder.ProcessAction(Global.WEAPON_ACTION_3))
+                anim.SetMeleeWeaponDashAnim();
         }
 
     }
