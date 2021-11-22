@@ -87,12 +87,22 @@ public static class Global
 
     public static bool IsGreaterEqual(float a, float b)
     {
-        return Mathf.Abs(a - b) <= EPS || a > b;
+        return Mathf.Abs(a - b) < EPS || a > b;
+    }
+
+    public static bool IsEqual(float a, float b)
+    {
+        return Mathf.Abs(a - b) < EPS;
     }
 
     public static float CalculateDistance(Vector3 a, Vector3 b)
     {
         return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    }
+
+    public static float CalculateManhattanDistance(Vector3 a, Vector3 b)
+    {
+        return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
     }
 
     public static float CalculateAngleBetween(Vector2 a, Vector2 b)
@@ -120,6 +130,11 @@ public static class Global
                 return i;
         }
         return 0;
+    }
+
+    public static bool IsEqual(Vector3 cell, Vector3 position)
+    {
+        return IsEqual(CalculateManhattanDistance(cell, position), 0f);
     }
 
     public static void SetPlayerControlTo(GameObject player, bool flag)

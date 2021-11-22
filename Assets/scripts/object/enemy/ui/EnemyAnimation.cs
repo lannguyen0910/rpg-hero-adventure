@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Animation : MonoBehaviour
+public class EnemyAnimation : MonoBehaviour
 {
     Animator anim;
     SpriteRenderer spriteRenderer;
