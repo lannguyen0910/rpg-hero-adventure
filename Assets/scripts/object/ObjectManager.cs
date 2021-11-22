@@ -20,9 +20,9 @@ public class ObjectManager : MonoBehaviour
         if (player == null)
         {
             player = GameObject.Find("Player");
+            if (player == null) return;
             portal.GetComponent<Portal>().SetPlayer(player);
             GameObject.Find("Main Camera").GetComponent<CameraController>().SetTarget(player);
-            return;
         }
 
         if (stageEnd) return;
