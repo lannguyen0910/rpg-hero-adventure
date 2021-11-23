@@ -17,9 +17,9 @@ public class PlayerStatus : MonoBehaviour
     public float dashSpeed = 15f;
     public float dashDelay = 0.1f;
     // Magic status
-    public float chargeSpeed = 1.17f;
-    public float chargeDelay = 0.33f;
-    public float castDelay = 0.33f;
+    public float chargeSpeed = 1.0f;
+    public float chargeDelay = 0.2f;
+    public float castDelay = 0.2f;
     // Movement status
     public int direction = 0;
     public int actionType = -1;
