@@ -58,6 +58,9 @@ public static class Global
     public static int HP_BUFF_CODE = 1;
     public static int DAMAGE_BUFF_CODE = 2;
     public static int RANGE_BUFF_CODE = 3;
+    public static int BULLET_SPEED_BUFF_CODE = 4;
+    public static int BULLET_THROUGH_BUFF_CODE = 101;
+    public static int BULLET_HOLMING_BUFF_CODE = 102;
 
     // Audio code
     public static int BACKGROUND_AUDIO_CODE = 0;

@@ -14,8 +14,8 @@ public class DamageBuff : Buff
         WeaponStatus melee = target.GetComponent<WeaponHolder>().GetWeapon(Global.MELEE_WEAPON).gameObject.GetComponent<WeaponStatus>();
         WeaponStatus magic = target.GetComponent<WeaponHolder>().GetWeapon(Global.MAGIC_WEAPON).gameObject.GetComponent<WeaponStatus>();
 
-        melee.damage *= 1.2f;
-        magic.damage *= 1.1f;
+        melee.damage *= 1.5f;
+        magic.damage *= 1.5f;
     }
 }
 

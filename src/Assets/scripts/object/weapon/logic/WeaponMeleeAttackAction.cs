@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponMeleeAttackAction : WeaponAction
 {
     [SerializeField]
-    GameObject hitboxPrototype;
+    public GameObject hitboxPrototype;
     GameObject hitbox = null;
 
     PlayerStatus playerStatus;

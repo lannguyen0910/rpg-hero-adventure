@@ -7,7 +7,7 @@ public class BulletEffect : EventEffect
     [SerializeField]
     Vector2 direction = new Vector2(1, 0);
     [SerializeField]
-    float moveSpeed = 2f;
+    public float moveSpeed = 2f;
 
     Rigidbody2D rigid;
 

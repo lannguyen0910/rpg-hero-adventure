@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponMagicFireAction : WeaponAction
 {
     [SerializeField]
-    GameObject bulletPrototype;
+    public GameObject bulletPrototype;
     GameObject bullet;
 
     PlayerStatus playerStatus;
@@ -30,10 +30,12 @@ public class WeaponMagicFireAction : WeaponAction
         playerStatus = gameObject.transform.parent.transform.parent.gameObject.GetComponent<PlayerStatus>();
 
         string bulletName = bulletPrototype.name;
+        Debug.Log("______HEY");
         bulletPrototype = Instantiate(bulletPrototype);
         bulletPrototype.name = bulletName;
         bulletPrototype.SetActive(false);
     }
+
 
     void FixedUpdate()
     {

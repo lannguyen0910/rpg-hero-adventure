@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletNotDisappearBuff : Buff
+public class BulletSpeedBuff : Buff
 {
-    public BulletNotDisappearBuff() : base(Global.BULLET_THROUGH_BUFF_CODE)
+    public BulletSpeedBuff() : base(Global.BULLET_SPEED_BUFF_CODE)
     {
-        description = "MAGIC GOES THROUGH WALL";
+        description = "MAGIC GOES FASTER";
     }
 
     public override void Process(GameObject target)
     {
         GameObject bullet = target.GetComponent<WeaponHolder>().GetWeapon(Global.MAGIC_WEAPON).gameObject.GetComponent<WeaponMagicFireAction>().bulletPrototype;
 
-        bullet.AddComponent<BulletNotDisappearDealer>();
+        ((BulletEffect)(bullet.GetComponent<EffectManager>().GetEffect(Global.BULLET_CODE))).moveSpeed *= 1.3f;
     }
 }
-

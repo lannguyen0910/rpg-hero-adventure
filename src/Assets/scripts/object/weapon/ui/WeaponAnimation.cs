@@ -12,8 +12,8 @@ public class WeaponAnimation : MonoBehaviour
     int[] spriteForAnimation2 = new int[5] { 0, 1, 2, 1, 0 };
     int direction = 0;
 
-    float meleeAttackAnimDelay = -0.9f;
-    float magicCastAnimDelay = -0.7f;
+    float meleeAttackAnimDelay = -1;
+    float magicCastAnimDelay = -1;
 
     // Start is called before the first frame update
     void Start()

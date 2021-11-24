@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvincibleEffect : EventEffect
+public class InvincibleEffect : MonoBehaviour
 {
+    /*
+
     [SerializeField]
     float invincibleDelay = 0;
 
@@ -26,4 +28,5 @@ public class InvincibleEffect : EventEffect
     {
         invincibleDelay = delay;
     }
+     */
 }

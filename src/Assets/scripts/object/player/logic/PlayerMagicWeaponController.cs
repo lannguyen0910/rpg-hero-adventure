@@ -30,18 +30,21 @@ public class PlayerMagicWeaponController : MonoBehaviour
         {
             weaponholder.ProcessAction(Global.WEAPON_ACTION_1);
             anim.SetMagicWeaponCastAnim();
+            currentAction = -1;
         }
         // Check cast explode input
         else if (Global.WEAPON_ACTION_2 == currentAction && Input.GetKeyUp((KeyCode)Global.WEAPON_ACTION_2))
         {
             weaponholder.ProcessAction(Global.WEAPON_ACTION_2);
             anim.SetMagicWeaponCastAnim();
+            currentAction = -1;
         }
         // Check cast iceball input
         else if (Global.WEAPON_ACTION_3 == currentAction && Input.GetKeyUp((KeyCode)Global.WEAPON_ACTION_3))
         {
             weaponholder.ProcessAction(Global.WEAPON_ACTION_3);
             anim.SetMagicWeaponCastAnim();
+            currentAction = -1;
         }
 
         // Check if doing other action

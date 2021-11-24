@@ -29,6 +29,7 @@ public class Map : MonoBehaviour
                 }
             }
         }
+
     }
 
     public HashSet<int>[,] GetMap()

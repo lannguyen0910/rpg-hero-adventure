@@ -13,7 +13,7 @@ public class HealthPointBuff : Buff
     {
         PlayerStatus status = target.GetComponent<PlayerStatus>();
 
-        float hp = status.maxHealthPoint * 0.2f;
+        float hp = status.maxHealthPoint * 0.5f;
         status.maxHealthPoint += hp;
         status.healthPoint += hp;
     }

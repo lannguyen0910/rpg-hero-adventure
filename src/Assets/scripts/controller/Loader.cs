@@ -38,5 +38,7 @@ public class Loader : MonoBehaviour
         if (PlayerStorage.magicSkill > 2) magic.GetComponent<WeaponMagicIceAction>().enabled = true;
         player.GetComponent<PlayerAnimation>().magicWeapon = magic;
         player.GetComponent<WeaponHolder>().weaponObjects[1] = magic;
+
+        BuffManager.Reset();
     }
 }

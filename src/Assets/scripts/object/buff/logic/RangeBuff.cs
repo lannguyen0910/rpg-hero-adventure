@@ -6,13 +6,13 @@ public class RangeBuff : Buff
 {
     public RangeBuff() : base(Global.RANGE_BUFF_CODE)
     {
-
+        description = "INCREASE MELEE RANGE";
     }
 
     public override void Process(GameObject target)
     {
-        WeaponStatus melee = target.GetComponent<WeaponHolder>().GetWeapon(Global.MELEE_WEAPON).gameObject.GetComponent<WeaponStatus>();
-        
+        GameObject hitbox = target.GetComponent<WeaponHolder>().GetWeapon(Global.MELEE_WEAPON).gameObject.GetComponent<WeaponMeleeAttackAction>().hitboxPrototype;
 
+        hitbox.transform.localScale *= 1.2f;
     }
 }

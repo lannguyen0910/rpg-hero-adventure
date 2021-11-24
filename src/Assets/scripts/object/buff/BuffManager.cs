@@ -14,6 +14,10 @@ public static class BuffManager
         Buff prototype;
         prototype = new HealthPointBuff();
         prototype = new DamageBuff();
+        prototype = new RangeBuff();
+        //prototype = new BulletSpeedBuff();
+        prototype = new BulletNotDisappearBuff();
+
     }
 
     public static Buff GetBuff(int code)
