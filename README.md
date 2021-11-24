@@ -57,3 +57,7 @@ https://assetstore.unity.com/packages/2d/gui/2d-ui-buttons-free-package-for-unit
 
 - Sprite Resources: From the Abyss
 - RPG Maker VX
+
+# **Team**
+- [Khiem Lo](https://github.com/01230123) 
+- [Lan-Hoang Nguyen](https://github.com/lannguyen0910)
