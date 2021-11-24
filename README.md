@@ -1,4 +1,4 @@
-<h1 align="center"> 🎮 Hero Adventure 🎮</h1>
+<h1 align="center"> 🎮 Hero Adventure</h1>
 
 <p align="center">
  <a><img  src="./Demo/demo.png"></a>
