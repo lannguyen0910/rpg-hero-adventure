@@ -41,10 +41,10 @@
 </p>
 
 # **Summary**
-- The game was able to release the first demo, although there are still many bugs and undeveloped features. The content of the game is still lacking due to the lack of familiarity with Unity for the first time, so it has not allocated time and appropriate work. However, the game can still have the nature of a ```hack 'n slash```, ```RPG``` game and still install important features.
+- The game was able to release the first demo, although there are still many bugs and undeveloped features. The content of the game is still lacking due to the lack of familiarity with Unity for the first time, so it has not allocated time and appropriate work. However, the game can still have the nature of a ```hack 'n slash```, ```RPG``` game and still implement important features.
 
 # **References**
-- Free assets from https://assetstore.unity.com/
+- Free assets from [Unity asset store](https://assetstore.unity.com/):
 ```
 https://assetstore.unity.com/packages/audio/music/free-music-and-sfx-collection-4369
 https://assetstore.unity.com/packages/audio/music/orchestral/rpg-orchestral-essentials-legacy-free-sample-pack-148199
