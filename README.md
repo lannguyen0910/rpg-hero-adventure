@@ -22,7 +22,9 @@
 - The game currently has a total of 10 stages, in order to pass a level, the player must defeat all the monsters in that level. Players can choose between melee or ranged to play. After defeating the monsters, the player can choose one of two skills at random to carry with them throughout the following levels. When the player loses all health, the player will be resurrected to the starting place and lose all skills received. Here players can use the gold earned through the game screen to upgrade weapons, unlock more skills of weapons. The ultimate goal is to fully prepare everything to be able to pass all 10 levels in one turn and win the game.
 
 # **How to play**
-- Players will use the keyboard to interact with the game. Use arrow keys to move; the ZXC and Shift keys to perform actions and the Space key to interact. You can also press Esc to pause the game.
+- Go to [release](https://github.com/lannguyen0910/unity-hero-adventure/releases/tag/1.0) and download ```Build.rar```.
+- Extract then run the ```.exe``` file.
+- In the game, players will use the keyboard to interact with the game. Use arrow keys to move; the ZXC and Shift keys to perform actions and the Space key to interact. You can also press Esc to pause the game.
 <p align="center">
  <a><img  src="./Demo/demo2.png"></a>
  <br>
