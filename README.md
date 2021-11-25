@@ -17,9 +17,9 @@
 
 
 # **Intro**
-- Inspired by ```hack 'n slash``` game series, typically the famous ```Hades``` game, the team decided to build a 2D dungeon-passing game through fighting monsters, upgrading weapons, skills... The game is named is ```Hero Adventure```, describing the process of defeating the character's final boss.
+- Inspired by ```hack 'n slash``` game series, typically the famous ```Hades``` game, the team decided to build a 2D dungeon-passing game through fighting monsters, upgrading weapons, skills... The game's named is ```Hero Adventure```, describing the process of defeating the character's final boss.
 
-- The game currently has a total of 10 stages, in order to pass a level, the player must defeat all the monsters in that level. Players can choose between melee or ranged to play. After defeating the monsters, the player can choose one of two skills at random to carry with them throughout the following levels. When the player loses all health, the player will be resurrected to the starting place and lose all skills received. Here players can use the gold earned through the game screen to upgrade weapons, unlock more skills of weapons. The ultimate goal is to fully prepare everything to be able to pass all 10 levels in one turn and win the game.
+- The game currently has a total of 10 stages, in order to pass a level, the player must defeat all the monsters in that stage. Players can choose between melee or magic to attack. After defeating the monsters, the player can choose one of two skills at random to carry with them throughout the following stages. When the player loses all health, the player will be respawned to the starting place and lose all skills received. Here players can use the gold earned through the game screen to upgrade weapons, unlock more skills of weapons. The ultimate goal is to fully prepare everything to be able to pass all 10 levels in one turn and win the game.
 
 # **How to play**
 - Go to [release](https://github.com/lannguyen0910/unity-hero-adventure/releases/tag/1.0) and download ```Build.rar```.
