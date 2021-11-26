@@ -61,5 +61,6 @@ https://assetstore.unity.com/packages/2d/gui/2d-ui-buttons-free-package-for-unit
 - RPG Maker VX
 
 # **Team**
+**Mid term project for Game Development course in uni. Study purpose only!**
 - [Khiem Lo](https://github.com/01230123) 
 - [Lan-Hoang Nguyen](https://github.com/lannguyen0910)
